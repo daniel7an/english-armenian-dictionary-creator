@@ -17,14 +17,16 @@ def process(words):
         types = list(meaning.keys())
 
         for t in types:
-            spec_meaning = meaning[t][0]
+            spec_meaning = meaning[t][0].replace('"', "")
             if types.index(t) == len(types) - 1:
                 meaning_txt += t + ' - ' + spec_meaning
             else:
                 meaning_txt += t + ' - ' + spec_meaning + ', '
-        rows.append([word, translation, meaning_txt])
+        rows.append([word, meaning_txt, translation])
+        print(meaning_txt)
     return rows
 
 if __name__ == '__main__':
     rows = process(words)
     convert_to_csv(rows)
+    
