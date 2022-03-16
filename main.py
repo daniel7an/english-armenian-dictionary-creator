@@ -2,7 +2,7 @@ from PyDictionary import PyDictionary
 from googletrans import Translator
 from write_csv import convert_to_csv
 
-words = ['rescue', 'door', 'car', 'big']
+words = ['rescue', 'door', 'car', 'big', 'focus', 'yard', 'dry', 'pool']
 
 dictionary = PyDictionary()
 translator = Translator()
