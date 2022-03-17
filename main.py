@@ -2,7 +2,11 @@ from PyDictionary import PyDictionary
 from googletrans import Translator
 from write_csv import convert_to_csv
 
-words = ['rescue', 'door', 'car', 'big', 'focus', 'yard', 'dry', 'pool']
+words_path = 'words.txt'
+words = []
+
+with open(words_path) as f:
+    words = [line.rstrip('\n') for line in f]
 
 dictionary = PyDictionary()
 translator = Translator()
@@ -23,7 +27,6 @@ def process(words):
             else:
                 meaning_txt += t + ' - ' + spec_meaning + ', '
         rows.append([word, meaning_txt, translation])
-        print(meaning_txt)
     return rows
 
 if __name__ == '__main__':
